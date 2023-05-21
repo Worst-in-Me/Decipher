@@ -9,14 +9,6 @@ const keyboard = {
     9: ['ь', 'э', 'ю', 'я'],
 };
 
-const decipher = (text) => {
-    let answer = '';
-
-    const splitedText = text.split('-');
-
-    for (let item of splitedText) answer += keyboard[item[0]][item.length - 1];
-
-    return answer;
-};
+const decipher = (text) => text.split('-').reduce((sum, curr) => sum + keyboard[curr[0]][curr.length - 1], '');
 
 console.log(decipher('22-33-66-5555-33-6-66-5555-33-444-666-4-222-55-9999-444'));
